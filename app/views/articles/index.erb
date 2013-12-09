@@ -1,0 +1,23 @@
+<div ng-app="readie">
+  <h1>Readie</h1>
+  <div ng-controller="PostCtrl">
+    <form class="form-horizontal" role="form">
+      <div class="form-group">
+        <div class="col-sm-11">
+          <input type="text" size="30" placeholder="Place URL of the articles..." class="form-control" ng-model="article.url" autofocus>
+        </div>
+        <div class="col-sm-1">
+          <button type="submit" class="btn btn-danger" add="addArticle()">Add</button>
+        </div>
+      </div>
+    </form>
+    <hr>
+    <ul>
+      <li ng-repeat="article in articles">
+        <single-article on-close="dimArticle()">
+          <a href class="close" ng-click="close()">&times;</a> {{article.date}} - <a href="{{article.url}}" target="_blank" alt="{{article.title}}">{{article.title}}</a>
+        </single-article>
+      </li>
+    </ul>
+  </div>
+</div>
